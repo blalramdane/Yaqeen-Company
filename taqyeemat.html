@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التقييمات - شركة اليقين</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h2 class="key word" id="key">التقييمات</h2>
+
+  <main class="ratings-main">
+    <!-- نموذج لإضافة تقييم جديد -->
+    <section id="add-rating">
+      <h2>أضف تقييم</h2>
+      <form id="add-rating-form">
+        <input type="text" id="client-name" placeholder="اسم العميل" required />
+        <input type="number" id="rating-value" min="1" max="5" placeholder="التقييم (1-5)" required />
+        <textarea id="rating-text" placeholder="نص التقييم" required></textarea>
+        <button type="submit">أضف التقييم</button>
+      </form>
+    </section>
+
+    <!-- قسم عرض التقييمات -->
+    <section id="taqyeemat" class="ratings-section">
+      <h2>تقييمات العملاء</h2>
+      <p>آراء عملائنا تعكس جودة خدماتنا. اقرأ تقييماتهم لتتعرف أكثر على تجاربهم.</p>
+      <div class="ratings-grid">
+        <!-- بطاقة تقييم أولية -->
+        <div class="rating-card">
+          <div class="rating-header">
+            <span class="client-name">امير عرفات ناصف </span>
+            <span class="rating-stars">★★★★★</span>
+          </div>
+          <p class="rating-text">خدمة ممتازة وسرعة في التنفيذ. أنصح بالتعامل مع شركة اليقين.</p>
+        </div>
+        <!-- بطاقة تقييم ثانية -->
+        <div class="rating-card">
+          <div class="rating-header">
+            <span class="client-name">عوض محمد ابو عوض</span>
+            <span class="rating-stars">★★★★☆</span>
+          </div>
+          <p class="rating-text">جودة العمل عالية مع بعض التأخير الطفيف في التسليم.</p>
+        </div>
+        <!-- بطاقة تقييم ثالثة -->
+        <div class="rating-card">
+          <div class="rating-header">
+            <span class="client-name">محمد توكل شيكو</span>
+            <span class="rating-stars">★★★★★</span>
+          </div>
+          <p class="rating-text">تجربة رائعة مع فريق محترف واهتمام بالتفاصيل.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="js/scripts.js"></script>
+</body>
+</html>
