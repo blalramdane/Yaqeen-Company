@@ -21,6 +21,7 @@ body {
 }
 
 /* تنسيقات الشريط العلوي الثابت */
+/* --- إعدادات عامة للـ Header --- */
 header {
   position: fixed;
   top: 0;
@@ -28,54 +29,66 @@ header {
   right: 0;
   z-index: 1000;
   background-color: var(--background-header);
-  color: var(--color-gold);
   padding: 15px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3); /* إضافة ظل */
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+}
+
+/* حاوية مركزية لمحتوى الـ Header */
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* تنسيقات الشعار */
 .logo1 {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: bold;
   background: linear-gradient(to right, var(--color-gold), var(--color-silver));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 0.2rem;
   font-family: 'Tajawal', sans-serif;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-  padding-bottom: 5px;
-  border-bottom: 3px solid var(--color-gold);
-  display: inline-block;
+  text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.6);
+  padding-bottom: 0.3rem;
+  border-bottom: 0.2rem solid var(--color-gold);
   transition: all 0.4s ease-in-out;
 }
 
 .logo1:hover {
-  text-shadow: 5px 5px 12px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+  text-shadow: 0.3rem 0.3rem 0.8rem rgba(255, 215, 0, 0.8), 0 0 1.2rem rgba(255, 215, 0, 0.6);
   transform: scale(1.05);
-  border-bottom: 3px solid var(--color-silver);
+  border-bottom: 0.2rem solid var(--color-silver);
 }
 
 /* تنسيقات القائمة */
 nav ul {
   list-style: none;
+  margin: 0;
   padding: 0;
   display: flex;
-  gap: 25px;
+  gap: 1.5rem;
+  overflow-x: auto;  /* لضمان ظهور الأزرار حتى في الشاشات الضيقة */
+  white-space: nowrap;
 }
 
 nav ul li a {
   color: var(--color-silver);
   text-decoration: none;
   font-weight: bold;
-  padding: 15px 20px;
-  border: 2px solid transparent;
-  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  border: 0.15rem solid transparent;
+  border-radius: 0.5rem;
   transition: all 0.3s;
-  font-size: 1.1em;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 nav ul li a:hover,
@@ -83,14 +96,65 @@ nav ul li a.active {
   color: var(--color-gold);
   border-color: var(--color-gold);
   background-color: rgba(255, 215, 0, 0.1);
-  transform: translateY(-3px); /* تأثير تحريك عند التمرير */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
 }
 
 nav ul li a.active {
-  border-bottom: 3px solid var(--color-gold);
+  border-bottom: 0.2rem solid var(--color-gold);
   transition: all 0.3s ease-in-out;
 }
+
+/* --- Media Queries لتحجيم الأزرار دون تغيير ترتيبها --- */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+  .logo1 {
+    font-size: 2rem;
+  }
+  nav ul li a {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+/* --- يمكن استخدام وحدات نسبية لضبط الحجم بالنسبة للنافذة --- */
+@media (max-width: 480px) {
+  .logo1 {
+    font-size: 1.8rem;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+/* تأكد من أن الحاوية الخاصة بالقائمة تسمح بالتمرير الأفقي */
+nav {
+  overflow-x: auto;
+}
+
+/* على مستوى القائمة */
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  white-space: nowrap; /* عدم التفاف العناصر */
+  flex-wrap: nowrap;   /* منع التفاف العناصر */
+  /* يمكن إضافة خاصية التمرير الذكي إذا رغبت */
+  scroll-snap-type: x mandatory;
+}
+
+/* لكل عنصر من عناصر القائمة */
+nav ul li {
+  scroll-snap-align: start;
+}
+
+/* تأكد من أن الروابط لا تنكمش */
+nav ul li a {
+  flex-shrink: 0;
+  min-width: 100px; /* يمكنك تعديل القيمة حسب التصميم */
+}
+
 
 /* تنسيقات القسم الرئيسي */
 main {
