@@ -197,6 +197,7 @@ main {
   100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
+
 /* تنسيقات قسم من نحن (About) */
 #about::before {
   display: block;
@@ -331,7 +332,21 @@ main {
 .social-icons img:hover {
   transform: scale(1.2);
 }
+/* Media Query للموبايل */
+@media screen and (max-width: 768px) {
+  .about-container {
+      flex-direction: column;
+  }
 
+  .new-section-details {
+      flex-direction: column;
+  }
+
+  h1, h2, h3, p {
+      text-align: right;
+      padding: 0 10px;
+  }
+}
 /* تنسيقات قسم الخدمات (Services) */
 .services-section {
   padding: 50px;
@@ -384,6 +399,16 @@ main {
   transform: scale(1.05);
 }
 
+/* موبايل */
+@media (max-width: 768px) {
+  .service-heading {
+    font-size: 1.8rem;
+  }
+
+  .service-item img {
+    height: 180px;
+  }
+}
 /* تنسيقات السلايدر (Carousel) */
 .carousel {
   position: relative;
@@ -971,3 +996,86 @@ footer .footer-content strong {
     padding: 8px 12px;
   }
 }
+/* ... (بقية الكود) ... */
+
+/* Media Queries محسنة */
+@media (max-width: 1200px) {
+  .about-container,
+  .new-section-details {
+    flex-direction: column;
+  }
+  .images-container,
+  .text-container,
+  .new-section-item {
+    width: 100%;
+  }
+  .image-bottom {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li a {
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+
+  .hero h2 {
+    font-size: 2.5em;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+
+  .about-container {
+    padding: 30px;
+  }
+
+  .text-container h1 {
+    font-size: 2.5em;
+  }
+
+  .text-container p,
+  .text-container ul li {
+    font-size: 1.1em;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    width: 95%;
+    height: 300px;
+  }
+
+  .prev,
+  .next {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+  .contact-container {
+      width: 90%;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+}
+
